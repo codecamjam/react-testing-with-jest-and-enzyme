@@ -15,7 +15,7 @@ const setup = () => shallow(<App />);
 /**
  * Factory function to find the data-test attribute from an element
  * @function findByTestAttr
- * @param {*} wrapper
+ * @param {* } wrapper
  * @param {*} val
  * @returns {ShallowWrapper}
  */
@@ -39,10 +39,10 @@ test("renders counter display", () => {
   expect(counterDisplay.length).toBe(1);
 });
 
-test("counter display starts at 0", () => {
+test("counter starts at 0", () => {
   const wrapper = setup();
-  const appComponent = wrapper.find("[data-test='component-app']");
-  expect(appComponent.length).toBe(1);
+  const count = findByTestAttr(wrapper, "count").text();
+  expect(count).toBe("0"); //this should be "0"
 });
 
 test("clicking button increments counter display", () => {
