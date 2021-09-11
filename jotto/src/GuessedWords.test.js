@@ -9,7 +9,8 @@ const defaultProps = {
 /**
  * Factory function to create a ShallowWrapper for the
  * GuessedWords component
- * @param {object} props - Component props specific to this setup.
+ * @param {object} props - Component props specific to
+ * this setup.
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
@@ -38,4 +39,31 @@ describe('if there are no words guessed', () => {
   });
 });
 
-describe('if there are words guessed', () => {});
+describe('if there are words guessed', () => {
+  let wrapper;
+  const guessedWords = [
+    { guessWord: 'train', lettMatchCount: 3 },
+    { guessWord: 'agile', lettMatchCount: 1 },
+    { guessWord: 'party', lettMatchCount: 5 },
+  ];
+
+  beforeEach(() => {
+    wrapper = setup({ guessedWords });
+  });
+
+  test('renders without error', () => {
+    const component = findByTestAttr(wrapper, 'component-guessed-words');
+    expect(component.length).toBe(1);
+  });
+
+  test('renders "guessed words" section', () => {
+    const guessedWordsNode = findByTestAttr(wrapper, 'guessed-words');
+
+    expect(guessedWordsNode.length).toBe(1);
+  });
+
+  test('correct number of guessed words', () => {
+    const guessedWordsNodes = findByTestAttr(wrapper, 'guessed-word');
+    expect(guessedWordsNodes.length).toBe(guessedWords.length);
+  });
+});
