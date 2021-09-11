@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 /**
  * Functional react component for congratulatory message.
  * @function Congrats
