@@ -42,9 +42,9 @@ describe('if there are no words guessed', () => {
 describe('if there are words guessed', () => {
   let wrapper;
   const guessedWords = [
-    { guessWord: 'train', lettMatchCount: 3 },
-    { guessWord: 'agile', lettMatchCount: 1 },
-    { guessWord: 'party', lettMatchCount: 5 },
+    { guessedWord: 'train', letterMatchCount: 3 },
+    { guessedWord: 'agile', letterMatchCount: 1 },
+    { guessedWord: 'party', letterMatchCount: 5 },
   ];
 
   beforeEach(() => {
