@@ -3,6 +3,13 @@ import { shallow } from 'enzyme';
 import Input from './Input';
 import { findByTestAttr, checkProps } from '../test/testUtils';
 
+//mock entire module for destructuring useState on import
+// const mockSetCurrentGuess = jest.fn();
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useState: (initialState) => [initialState, mockSetCurrentGuess],
+// }));
+
 /**
  * Factory function to create a ShallowWrapper for the
  * GuessedWords component
