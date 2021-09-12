@@ -12,6 +12,8 @@ const Input = ({ secretWord }) => {
           type='text'
           className='mb-2 mx-sm-3'
           placeholder='enter guess'
+          value={currentGuess}
+          onChange={(e) => setCurrentGuess(e.target.value)}
         />
         <button data-test='submit-button' className='btn btn-primary mb-2'>
           Submit
