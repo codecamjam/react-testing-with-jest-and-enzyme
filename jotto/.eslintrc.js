@@ -43,7 +43,7 @@ module.exports = {
       {
         singleQuote: true,
         parser: 'flow',
-        printWidth: 50,
+        printWidth: 75,
       },
     ],
   },
