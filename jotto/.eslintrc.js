@@ -31,7 +31,7 @@ module.exports = {
     quotes: [2, 'single'],
     'jsx-quotes': [2, 'prefer-single'],
     'no-unused-vars': [
-      'error',
+      'warn',
       {
         vars: 'all',
         args: 'after-used',
@@ -39,7 +39,7 @@ module.exports = {
       },
     ],
     'prettier/prettier': [
-      'error',
+      'warn',
       {
         singleQuote: true,
         parser: 'flow',
