@@ -2,7 +2,9 @@ import Enzyme, { shallow } from 'enzyme';
 import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17';
 import App from './App';
 
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+Enzyme.configure({
+  adapter: new EnzymeAdapter(),
+});
 
 /**
  * Factory function to create a ShallowWrapper for the
@@ -19,29 +21,42 @@ const setup = () => shallow(<App />);
  * @param {string} val
  * @returns {ShallowWrapper}
  */
-const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
+const findByTestAttr = (wrapper, val) =>
+  wrapper.find(`[data-test='${val}']`);
 
 test('renders without error', () => {
   const wrapper = setup();
-  const appComponent = findByTestAttr(wrapper, 'component-app');
+  const appComponent = findByTestAttr(
+    wrapper,
+    'component-app',
+  );
   expect(appComponent.length).toBe(1);
 });
 
 test('renders increment button', () => {
   const wrapper = setup();
-  const button = findByTestAttr(wrapper, 'increment-button');
+  const button = findByTestAttr(
+    wrapper,
+    'increment-button',
+  );
   expect(button.length).toBe(1);
 });
 
 test('renders counter display', () => {
   const wrapper = setup();
-  const counterDisplay = findByTestAttr(wrapper, 'counter-display');
+  const counterDisplay = findByTestAttr(
+    wrapper,
+    'counter-display',
+  );
   expect(counterDisplay.length).toBe(1);
 });
 
 test('counter starts at 0', () => {
   const wrapper = setup();
-  const count = findByTestAttr(wrapper, 'count').text();
+  const count = findByTestAttr(
+    wrapper,
+    'count',
+  ).text();
   expect(count).toBe('0'); //this should be "0"
 });
 
@@ -49,12 +64,18 @@ test('clicking button increments counter display', () => {
   const wrapper = setup();
 
   //find button
-  const button = findByTestAttr(wrapper, 'increment-button');
+  const button = findByTestAttr(
+    wrapper,
+    'increment-button',
+  );
 
   //click Button
   button.simulate('click');
 
   //find the display and test that the number has incremented
-  const count = findByTestAttr(wrapper, 'count').text();
+  const count = findByTestAttr(
+    wrapper,
+    'count',
+  ).text();
   expect(count).toBe('1');
 });
