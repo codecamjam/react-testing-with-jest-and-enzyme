@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='container'>
+    <div className='container' data-test='component-app'>
       <h1>Jotto </h1>
       <Congrats success />
       <GuessedWords
