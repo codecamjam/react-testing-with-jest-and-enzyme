@@ -7,8 +7,7 @@ import { findByTestAttr } from '../test/testUtils';
 /**
  * Create a wrapper with specified initial conditions
  * then submit a guessed word of 'train'
- * @function
- *
+ * @function setup
  * @param {object} state - Initial conditions.
  * @returns {Wrapper} - Enzyme wrapper of mounted App component
  */
@@ -25,7 +24,22 @@ const setup = (state = {}) => {
   submitButton.simulate('click', { preventDefault() {} });
 };
 
-describe('no words guessed', () => {});
+describe('no words guessed', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = setup({
+      secretWord: 'party',
+      success: false,
+      guessedWords: [],
+    });
+  });
+
+  test('creates GuessedWords table with one row', () => {
+    const guessedWordRows = findByTestAttr(wrapper, 'guessed-word');
+    expect(guessedWordRows).toHaveLength(1);
+  });
+});
 
 describe('some words guessed', () => {});
 
