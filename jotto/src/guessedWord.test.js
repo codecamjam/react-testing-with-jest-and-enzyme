@@ -25,7 +25,19 @@ const setup = (state = {}) => {
   return wrapper;
 };
 
-describe('no words guessed', () => {
+// describe('invalid word guessed', () => {
+//   test.todo('guessedWords table does not get another row');
+// });
+
+/*
+JEST METHODS ON TEST AND DESCRIBE
+.only: only run test/describe with .only specified
+.skip: dont run any test/describe with .skip specified
+.todo - only works with tests (reminds you about future work)
+good for isolating tests or skipping tests
+*/
+
+describe.skip('no words guessed', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -42,7 +54,7 @@ describe('no words guessed', () => {
   });
 });
 
-describe('some words guessed', () => {
+describe.skip('some words guessed', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = setup({
@@ -58,7 +70,7 @@ describe('some words guessed', () => {
   });
 });
 
-describe('guess secret word', () => {
+describe.skip('guess secret word', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = setup({
