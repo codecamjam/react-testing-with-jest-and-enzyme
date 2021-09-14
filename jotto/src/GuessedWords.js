@@ -9,13 +9,12 @@ const GuessedWords = (props) => {
       </span>
     );
   } else {
-    const guessedWordsRows =
-      props.guessedWords.map((word, index) => (
-        <tr data-test='guessed-word' key={index}>
-          <td>{word.guessedWord}</td>
-          <td>{word.letterMatchCount}</td>
-        </tr>
-      ));
+    const guessedWordsRows = props.guessedWords.map((word, index) => (
+      <tr data-test='guessed-word' key={index}>
+        <td>{word.guessedWord}</td>
+        <td>{word.letterMatchCount}</td>
+      </tr>
+    ));
 
     contents = (
       <div data-test='guessed-words'>
@@ -32,19 +31,14 @@ const GuessedWords = (props) => {
       </div>
     );
   }
-  return (
-    <div data-test='component-guessed-words'>
-      {contents}
-    </div>
-  );
+  return <div data-test='component-guessed-words'>{contents}</div>;
 };
 
 GuessedWords.propTypes = {
   guessedWords: PropTypes.arrayOf(
     PropTypes.shape({
       guessedWord: PropTypes.string.isRequired,
-      letterMatchCount:
-        PropTypes.number.isRequired,
+      letterMatchCount: PropTypes.number.isRequired,
     }),
   ).isRequired,
 };
