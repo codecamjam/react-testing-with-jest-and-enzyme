@@ -1,6 +1,18 @@
 import moxios from 'moxios';
 import { getSecretWord } from './';
 
+/*
+ 1. FOR ASYNC FUNCTIONS, MAKE SURE YOU RETURN 
+ THE FUNCTION CALL IN THE TEST
+
+ 2. The test needs to wait until the promise resolves,
+ so thats why we do this (so the test won't finish before
+ the promise resolves)
+ 
+ 3. Call the assertion in the .then() callback
+ 4. MAKE SURE YOU SEE THE TESTS FAIL 
+ */
+
 describe('getSecretWord', () => {
   beforeEach(() => {
     moxios.install();
