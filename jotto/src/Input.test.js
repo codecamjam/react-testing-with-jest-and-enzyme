@@ -1,7 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Input from './Input';
+import { mount } from 'enzyme';
 import { findByTestAttr, checkProps } from '../test/testUtils';
+import { Provider } from 'react-redux';
+
+import Input from './Input';
 
 //mock entire module for destructuring useState on import
 // const mockSetCurrentGuess = jest.fn();
@@ -16,8 +18,12 @@ import { findByTestAttr, checkProps } from '../test/testUtils';
  * @function setup
  * @returns {ShallowWrapper}
  */
-const setup = (success = false, secretWord = 'party') => {
-  return shallow(<Input success={success} secretWord={secretWord} />);
+const setup = (secretWord = 'party') => {
+  return mount(
+    <Provider>
+      <Input secretWord={secretWord} />
+    </Provider>,
+  );
 };
 
 describe('render', () => {
