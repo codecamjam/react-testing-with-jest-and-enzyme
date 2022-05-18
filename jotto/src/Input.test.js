@@ -1,6 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { findByTestAttr, checkProps } from '../test/testUtils';
+import {
+  findByTestAttr,
+  checkProps,
+  storeFactory,
+} from '../test/testUtils';
 import { Provider } from 'react-redux';
 
 import Input from './Input';
@@ -18,9 +22,10 @@ import Input from './Input';
  * @function setup
  * @returns {ShallowWrapper}
  */
-const setup = (secretWord = 'party') => {
+const setup = (initialState = {}, secretWord = 'party') => {
+  const store = storeFactory(initialState);
   return mount(
-    <Provider>
+    <Provider store={store}>
       <Input secretWord={secretWord} />
     </Provider>,
   );
