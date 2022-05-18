@@ -36,7 +36,7 @@ describe('render', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = setup(true);
+      wrapper = setup({ success: true });
     });
 
     test('input renders without error', () => {
@@ -57,7 +57,7 @@ describe('render', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = setup(false);
+      wrapper = setup({ success: false });
     });
 
     test('input renders without error', () => {
@@ -87,7 +87,7 @@ describe('state controlled input field', () => {
     mockSetCurrentGuess.mockClear();
     originalUseState = React.useState;
     React.useState = jest.fn(() => ['', mockSetCurrentGuess]);
-    wrapper = setup();
+    wrapper = setup({ success: false });
   });
   afterEach(() => {
     React.useState = originalUseState;

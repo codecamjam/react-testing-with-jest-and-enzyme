@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable import/first */
 import { mount } from 'enzyme';
-import { findByTestAttr } from '../test/testUtils';
+import { Provider } from 'react-redux';
+import { findByTestAttr, storeFactory } from '../test/testUtils';
 import App from './App';
 
 //activate global mock to make sure getSecretWord doesn't make network call
@@ -18,7 +19,12 @@ import { getSecretWord as mockGetSecretWord } from './actions';
 const setup = () => {
   //use mount, because useEffect not called on 'shallow'
   // https://github.com/airbnb/enzyme/issues/2086
-  return mount(<App />);
+  const store = storeFactory();
+  return mount(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+  );
 };
 
 test('renders without error', () => {
