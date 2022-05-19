@@ -53,5 +53,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "moxios": "^0.4.0",
     "prettier": "^2.4.0"
+  },
+  "jest": {
+    "resetMocks": false
   }
 }
